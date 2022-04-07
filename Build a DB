@@ -1,0 +1,80 @@
+
+/*Campos de geocódigo e precisão
+As informações de geocódigo identificam um local usando uma latitude, 
+uma longitude e uma classificação de precisão. Os campos de geocódigo estão 
+disponíveis para endereços padrão em contas, contatos e leads no Salesforce. 
+Os campos de geocódigo não são visíveis nos registros, mas você pode visualizá-los 
+usando a API do Salesforce.*/
+
+CREATE TABLE PESSOA(
+  id integer PRIMARY key AUTOINCREMENT,
+  nome varchar(60),
+  telefone varchar(15),
+  email varchar(60)
+);
+
+CREATE TABLE produto(
+	id integer PRIMARY key AUTOINCREMENT,
+	nomeProduto varchar(60), 
+	preco decimal(9.2), 
+	estoque integer(60)
+	);
+
+CREATE TABLE fornecedor(
+	id integer PRIMARY key AUTOINCREMENT,
+  	nome varchar(60),
+  	rua varchar(60), 
+  	cidade varchar(20), 
+  	uf varchar(2), 
+  	email varchar(60)
+  	);
+
+
+INSERT INTO PESSOA (nome, telefone, email) VALUES ("JULIANO","811000",'juliano@hotmail.com');
+INSERT INTO PESSOA (nome, telefone, email) VALUES ("CREUSA","707070",'creusinhaLinda@hotmail.com');
+
+INSERT INTO PESSOA (nome, telefone, email) VALUES ("joana","811000",'juliano@hotmail.com'),(
+"matheus","811000",'juliano@hotmail.com'),("cleyton","811000",'juliano@hotmail.com'),(
+"josiane","811000",'juliano@hotmail.com'),("berbel","811000",'juliano@hotmail.com'),(
+"juninhoPlay","811000",'juliano@hotmail.com'),("naty","811000",'juliano@hotmail.com'),(
+"MdDadinho","811000",'juliano@hotmail.com');
+
+INSERT INTO fornecedor(nome,rua,cidade,uf,email,estoque) VALUES('Mamaco Corp','rua x','cidade y','xy','mamaco@hotmail.com',3),
+('trident Corp','rua x','cidade y','xy','mamaco@hotmail.com',3),('Mamacita Corp','rua x','cidade y','xy','mamaco@hotmail.com',3),
+('notebook Corp','rua x','cidade y','xy','mamaco@hotmail.com',3),('Mamacito Corp','rua x','cidade y','xy','mamaco@hotmail.com',3),
+('prandini Corp','rua x','cidade y','xy','mamaco@hotmail.com',3),('Mamadeira Corp','rua x','cidade y','xy','mamaco@hotmail.com',3),
+('molejo Corp','rua x','cidade y','xy','mamaco@hotmail.com',3),('pao de quiejo Corp','rua x','cidade y','xy','mamaco@hotmail.com',3),
+('controle Corp','rua x','cidade y','xy','mamaco@hotmail.com',3);
+
+
+INSERT INTO produto (nomeproduto,preco,estoque) VALUES('Mamadeira',3.00,3),('Madeira',6.00,3),('chinelinho',3.00,3),
+('calça',44.00,3),('camiseta',46.00,3),('jogo',1.00,3),('enfeite natalino',3.00,3),('trident',3.00,3);
+INSERT INTO produto (nomeproduto,preco,estoque) VALUES('show',4.00,5);
+
+ALTER TABLE fornecedor ADD estoque integer;
+
+select nome from PESSOA;
+select nomeproduto, estoque from produto;
+select nome,  email, cidade from fornecedor;
+
+select *from PESSOA;
+select *from produto;
+select *from fornecedor;
+
+/*drop TABLE PESSOA;*/
+DELETE FROM PESSOA where id = 1;
+DELETE from produto;
+SELECT nomeproduto, preco FROM produto;
+SELECT nome FROM PESSOA where id = 1;
+select nome from PESSOA;
+
+SELECT nome, telefone FROM Pessoa WHERE nome = 'CREUSA';
+
+SELECT nome, telefone FROM Pessoa WHERE nome LIKE  '%o';
+
+/*
+%String - termina com a String
+String% - começa com a String
+%String% - pode esta em qualquer lugar no texto
+*/
+
